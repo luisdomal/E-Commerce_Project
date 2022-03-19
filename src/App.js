@@ -1,22 +1,23 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
-import './App.css';
+import Home from './routes/home/homepage.component';
+import Navigation from './routes/navigation/navigation.component';
+import SignIn from './routes/sign-in/sign-in.component';
 
-import HomePage from './pages/homepage/homepage.component';
-import ShopPage from './pages/shop/shop.component';
-import Header from './components/header/header.component';
+const Shop = () => {
+  return <h1>I am the shop page</h1>;
+};
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <Header />
-      <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route path='/shop' component={ShopPage} />
-      </Switch>
-    </div>
+    <Routes>
+      <Route path='/' element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path='shop' element={<Shop />} />
+        <Route path='sign-in' element={<SignIn />} />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
