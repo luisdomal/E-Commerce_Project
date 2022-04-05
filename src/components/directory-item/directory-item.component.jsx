@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import './directory-item.styles.scss';
 
 const DirectoryItem = ({ category }) => {
@@ -11,7 +13,7 @@ const DirectoryItem = ({ category }) => {
         }}
       />
       <div className='body'>
-        <h2>{title.toUpperCase()}</h2>
+        <Link className='title' to= {`/shop/${title}`}>{title.toUpperCase()}</Link>
         <p>SHOP NOW</p>
       </div>
     </div>
